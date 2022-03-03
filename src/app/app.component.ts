@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Log } from '@angular/core/testing/src/logger';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { forEach } from '@angular/router/src/utils/collection';
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -40,6 +41,10 @@ export class AppComponent {
   edit(index: any) {
     console.log(this.auto);
     console.log(this.auto[index]);
+
+    for (let i = 0; i < this.auto[index].warehouseAutomationParameters.length; i++) {
+      this.addNewAddressGroup();
+    }
     this.form.patchValue(this.auto[index]);
   }
 }
