@@ -1,4 +1,4 @@
-<div [formGroup]="form">
+<div [formGroup]="form" onsubmit="save()">
 	<div>
 		<input type="text" formControlName="integrationTypeId">
   </div>
@@ -24,12 +24,38 @@
     </div>
 </div>
 
-<br>
-<br>
-<br>
-<br>
-result <br>
+<button (click)="save()">Save</button>
 
-<pre>
+
+<!-- <pre>
 {{form.value | json}}
-</pre>
+</pre> -->
+
+<div>
+
+
+<table>
+<tr>
+  <th>Company</th>
+  <th>Contact</th>
+  <th>Country</th>
+</tr>
+<tr *ngFor="let item of auto">
+  <td>{{item.integrationTypeId}}</td>
+  <td>{{item.enabled}}</td>
+  <td>
+    <tr *ngFor="let m of item.warehouseAutomationParameters">
+      <td>{{m.name}}</td>
+      <td>{{m.value}}</td>
+
+      <tr>
+  
+  </td>
+</tr>
+<tr>
+  <td>Centro comercial Moctezuma</td>
+  <td>Francisco Chang</td>
+  <td>Mexico</td>
+</tr>
+</table>
+</div>
