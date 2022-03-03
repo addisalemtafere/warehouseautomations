@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Log } from '@angular/core/testing/src/logger';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 @Component({
   selector: 'my-app',
@@ -31,8 +32,14 @@ export class AppComponent {
     add.removeAt(index);
   }
 
-
-  save(){
+  save() {
     this.auto.push(this.form.value);
+    this.form.reset();
+  }
+
+  edit(index: any) {
+    console.log(this.auto);
+    console.log(this.auto[index]);
+    this.form.patchValue(this.auto[index]);
   }
 }

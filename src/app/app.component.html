@@ -40,7 +40,7 @@
   <th>Contact</th>
   <th>Country</th>
 </tr>
-<tr *ngFor="let item of auto">
+<tr *ngFor="let item of auto;let i=index">
   <td>{{item.integrationTypeId}}</td>
   <td>{{item.enabled}}</td>
   <td>
@@ -51,11 +51,10 @@
       <tr>
   
   </td>
+  <td>
+  <button (click)="edit(i)">Edit</button>
+  </td>
 </tr>
-<tr>
-  <td>Centro comercial Moctezuma</td>
-  <td>Francisco Chang</td>
-  <td>Mexico</td>
-</tr>
+
 </table>
 </div>
