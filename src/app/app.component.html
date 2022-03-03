@@ -1,20 +1,24 @@
 <div [formGroup]="form">
 	<div>
-		<input type="text" formControlName="name">
+		<input type="text" formControlName="integrationTypeId">
   </div>
+  <div>
+  <input type="text" formControlName="enabled">
+</div>
+  
   <div>
     <button (click)="addNewAddressGroup()">Add</button>
   </div>
 
-    <div *ngFor="let addressGroup of form.get('address').controls;let i = index" [formGroup]="addressGroup">
+    <div *ngFor="let addressGroup of form.get('warehouseAutomationParameters').controls;let i = index" [formGroup]="addressGroup">
 
       form No : {{i}}
         <div>
-          street <input formControlName="street">
+          street <input formControlName="name">
         </div>
 
          <div>
-          city <input formControlName="city">
+          city <input formControlName="value">
         </div>
         <button (click)="deleteAddressGroup(i)" >Delete - {{i}}</button>
     </div>

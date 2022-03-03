@@ -10,22 +10,23 @@ export class AppComponent {
 
   constructor(private fb: FormBuilder) {
     this.form = fb.group({
-      name: [],
-      address: fb.array([])
+      integrationTypeId: [],
+      enabled:[],
+      warehouseAutomationParameters: fb.array([])
     })
   }
 
 
   addNewAddressGroup() {
-    const add = this.form.get('address') as FormArray;
+    const add = this.form.get('warehouseAutomationParameters') as FormArray;
     add.push(this.fb.group({
-      street: [],
-      city: []
+      name: [],
+      value: []
     }))
   }
 
   deleteAddressGroup(index: number) {
-    const add = this.form.get('address') as FormArray;
+    const add = this.form.get('warehouseAutomationParameters') as FormArray;
     add.removeAt(index)
   }
 }
